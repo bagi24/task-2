@@ -8,16 +8,15 @@ const users = [
 
 const youngAge = (users) => {
   const minAge = Math.min(...users.map((user) => user.age));
+
   const youngestUser = users.find((user) => user.age === minAge);
 
   return youngestUser.name;
 };
 
-console.log(youngAge(users));
+console.log(youngAge(users)); //"Lasha"
 
 //Task - 2
-
-const cloneUser = (originalUser) => ({ ...originalUser });
 
 const user = {
   name: "Bagrati",
@@ -25,34 +24,29 @@ const user = {
   email: "bagrat.injgia24@gmail.com",
 };
 
+const cloneUser = (originalUser) => ({ ...originalUser });
+
 const newUser = cloneUser(user);
 
 console.log(user); // { name: 'Bagrati', age: 28, email: 'bagrat.injgia24@gmail.com' }
 console.log(newUser); // { name: 'Bagrati', age: 28, email: 'bagrat.injgia24@gmail.com' }
 
-
-
-
 //Task - 3
 
-
 function rollDice() {
-    return Math.floor(Math.random() * 6) + 1;
+  return Math.floor(Math.random() * 6) + 1;
+}
+
+let winner;
+
+do {
+  const aPerson = rollDice();
+  const bPerson = rollDice();
+  if (aPerson === 3) {
+    winner = "Player A";
+  } else if (bPerson === 3) {
+    winner = "Player B";
   }
-  
-  let winner;
-  
-  do {
-    const aPerson = rollDice();
-    const bPerson = rollDice();
-    if (aPerson === 3) {
-      winner = "Player A";
-    } else if (bPerson === 3) {
-      winner = "Player B";
-    }
-  } while (!winner);
-  
-  console.log(`${winner} wins!`);
+} while (!winner);
 
-
-
+console.log(`${winner} wins!`);  
